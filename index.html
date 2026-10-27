@@ -267,16 +267,7 @@
         <p class="ticket-description">Ticket individuel · Prix affiché en francs CFA.</p>
 
         <form id="booking">
-          <div class="form-row">
-            <label for="quantity">Tickets</label>
-          </div>
-
-          <div class="total-row">
-            <span>Total de la réservation</span>
-            <strong id="total-price" aria-live="polite">5 000 FCFA</strong>
-          </div>
-
-          <button class="button submit-button" type="submit">Continuer <span aria-hidden="true">→</span></button>
+<button class="button submit-button" type="submit">Continuer <span aria-hidden="true">→</span></button>
           <div class="status" id="status" role="status" tabindex="-1" aria-live="polite"></div>
         </form>
       </article>
@@ -309,7 +300,6 @@
       lieu: "VILLA DES MŒURS",
       typeLieu: "VILLA PRIVÉE · BÉNIN",
       adresse: "Abomey-Calavi, en face de l'UAC d'Abomey-Calavi",
-      quantiteMaximum: 4
     };
 
     /* Applique les informations de configuration à la page. */
@@ -324,33 +314,13 @@
       document.getElementById("info-venue").textContent = CONFIGURATION.lieu;
       document.getElementById("info-address").textContent = CONFIGURATION.adresse;
       document.getElementById("unit-price").textContent = formaterPrix(CONFIGURATION.prixTicket);
-
-      const select = document.getElementById("quantity");
-      select.innerHTML = "";
-      for (let nombre = 1; nombre <= CONFIGURATION.quantiteMaximum; nombre++) {
-        const option = document.createElement("option");
-        option.value = String(nombre);
-        option.textContent = `${nombre} ticket${nombre > 1 ? "s" : ""}`;
-        select.appendChild(option);
-      }
-      actualiserTotal();
     }
 
     /* Affiche les prix avec des espaces : 5 000 FCFA. */
     function formaterPrix(montant) {
       return new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(montant);
     }
-
-    /* Met à jour le montant dès que le visiteur change la quantité. */
-    function actualiserTotal() {
-      const quantite = Number(document.getElementById("quantity").value);
-      const total = CONFIGURATION.prixTicket * quantite;
-      document.getElementById("total-price").textContent = `${formaterPrix(total)} FCFA`;
-    }
-
-    document.getElementById("quantity").addEventListener("change", actualiserTotal);
-
-    /* Redirection vers la page d'achat Chariow */
+/* Redirection vers la page d'achat Chariow */
 document.getElementById("booking").addEventListener("submit", function (event) {
   event.preventDefault();
   window.location.href = "https://vvoptwjd.mychariow.online/prd_oztzrvf1";
